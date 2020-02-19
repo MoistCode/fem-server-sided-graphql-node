@@ -8,13 +8,15 @@ module.exports = {
     pets(_, { input }, context) {
       return context.models.Pet.findMany(input);
     },
-    pet(_, { input }, context) {
-      return context.models.Pet.findOne(input);
+    pet(_, id, context) {
+      return context.models.Pet.findOne(id);
     }
   },
-  // Mutation: {
-    
-  // },
+  Mutation: {
+    pet(_, { input }, context) {
+      return context.models.Pet.create(input);
+    }
+  },
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'
