@@ -22,13 +22,14 @@ const typeDefs = gql`
   }
 
   input PetInput {
+    id: ID
     name: String
     type: String
   }
 
   type Query {
     pets(input: PetInput): [Pet]!
-    pet(id: ID!): Pet
+    pet(input: PetInput): Pet
   }
 `;
 
